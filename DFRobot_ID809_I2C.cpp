@@ -971,7 +971,7 @@ size_t DFRobot_ID809_I2C::readN(void* pBuf, size_t size)
   
   uint8_t * _pBuf = (uint8_t *)pBuf;
   
- #if !CONFIG_IDF_TARGET_ESP32C3 && !CONFIG_IDF_TARGET_ESP32S3
+ #if !CONFIG_IDF_TARGET_ESP32
   _pWire->beginTransmission(_deviceAddr);
 #endif
   while(size > 32) {
@@ -993,7 +993,7 @@ size_t DFRobot_ID809_I2C::readN(void* pBuf, size_t size)
 //	Serial.print(" ");
   }
  // delay(10);
- #if !CONFIG_IDF_TARGET_ESP32C3 && !CONFIG_IDF_TARGET_ESP32S3
+ #if !CONFIG_IDF_TARGET_ESP32
   if( _pWire->endTransmission() != 0) {
     return 0;
    }
